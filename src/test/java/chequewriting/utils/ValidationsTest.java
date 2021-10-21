@@ -27,36 +27,21 @@ class ValidationsTest {
   @DisplayName("Should throw IllegalArgumentException when supplied with empty string")
   void inputValidationForEmptyString() {
     assertThrows(IllegalArgumentException.class,
-        new Executable() {
-          @Override
-          public void execute() throws Throwable {
-            Validations.inputValidation("", "");
-          }
-        });
+        () -> Validations.inputValidation("", ""));
   }
 
   @Test
   @DisplayName("Should throw IllegalArgumentException when supplied with null values")
   void inputValidationForNull() {
     assertThrows(NullPointerException.class,
-        new Executable() {
-          @Override
-          public void execute() throws Throwable {
-            Validations.inputValidation(null, null);
-          }
-        });
+        () -> Validations.inputValidation(null, null));
   }
 
   @Test
   @DisplayName("Should display proper exception message for null arguments")
   void inputValidationExceptionMessageNull() {
     NullPointerException nullPointerException = assertThrows(NullPointerException.class,
-        new Executable() {
-          @Override
-          public void execute() throws Throwable {
-            Validations.inputValidation(null, null);
-          }
-        });
+        () -> Validations.inputValidation(null, null));
 
     assertEquals(npeMessageNullArguments, nullPointerException.getMessage());
 
@@ -66,12 +51,7 @@ class ValidationsTest {
   @DisplayName("Should display proper exception message for empty arguments")
   void inputValidationExceptionMessageEmpty() {
     IllegalArgumentException illegalArgumentException = assertThrows(IllegalArgumentException.class,
-        new Executable() {
-          @Override
-          public void execute() throws Throwable {
-            Validations.inputValidation("", "");
-          }
-        });
+        () -> Validations.inputValidation("", ""));
 
     assertEquals(iaeMessageEmptyArguments, illegalArgumentException.getMessage());
 
