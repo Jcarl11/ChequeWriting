@@ -6,11 +6,11 @@
 
   <appender name = "APPENDER-CONSOLE" class = "ch.qos.logback.core.ConsoleAppender">
     <encoder>
-      <pattern>&lt;&lt;%-5level&gt;&gt; %d{dd-MMMM-yyyy HH:mm:ss} [%t] %c{0}:%L - %m%n</pattern>
+      <pattern>&lt;&lt;%highlight(%-5level)&gt;&gt; %d{dd-MMMM-yyyy HH:mm:ss} [%t] %c{0}:%L - %m%n</pattern>
     </encoder>
   </appender>
 
-  <logger name = "chequewriting" level = "debug" additivity = "false" >
+  <logger name = "chequewriting" level = "all" additivity = "false" >
     <appender-ref ref = "APPENDER-CONSOLE" />
   </logger>
 
