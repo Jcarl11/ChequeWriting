@@ -7,23 +7,29 @@ public class Validations {
 
   private static final Logger logger = LoggerFactory.getLogger(Validations.class);
 
-  public static final void inputValidation(String amount, String currency)
+  /*
+  *   Return: returns only true if only if the arguments are valid
+  *           else will throw an exception
+  * */
+  public static final boolean inputValidation(String amount, String currency)
       throws IllegalArgumentException, NullPointerException {
     logger.trace("Entering inputValidation()");
+
+    boolean isValid = false;
 
     if (amount == null || currency == null) {
       throw new NullPointerException("Arguments cannot be null");
     }
 
-    String amountTemp = amount.trim().toLowerCase();
-    String currencyTemp = currency.trim().toLowerCase();
-
-    if (amountTemp.isEmpty() || currencyTemp.isEmpty()) {
+    if (amount.trim().isEmpty() || currency.trim().isEmpty()) {
       throw new IllegalArgumentException("Arguments cannot be empty");
     }
 
-    logger.debug("Amount = {}, currency = {}", amountTemp, currency);
+    isValid = true;
+    logger.debug("Amount = {}, currency = {}", amount, currency);
     logger.trace("Exiting inputValidation()...");
+
+    return isValid;
   }
 
 }
