@@ -1,15 +1,18 @@
 package chequewriting.utils;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class ValidationsTest {
 
+  private static final Logger logger = LoggerFactory.getLogger(ValidationsTest.class);
   private static String npeMessageNullArguments;
   private static String iaeMessageEmptyArguments;
 
@@ -55,5 +58,12 @@ class ValidationsTest {
 
     assertEquals(iaeMessageEmptyArguments, illegalArgumentException.getMessage());
 
+  }
+
+  @Test
+  @DisplayName("Test if supplied with correct arguments")
+  void inputValidationPositiveScenario() {
+    boolean result = Validations.inputValidation("1234.56","USD");
+    assertEquals(true, result);
   }
 }
