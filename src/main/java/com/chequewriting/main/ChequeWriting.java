@@ -16,7 +16,7 @@ public class ChequeWriting {
    * currency = AUD
    * */
   public static void parse(String amount, String currency) {
-    Validations.inputValidation("20,340.15","AUD");
+    boolean result = Validations.inputValidation("20,340.15","AUD");
 
   }
 
