@@ -1,6 +1,6 @@
-package chequewriting.main;
+package com.chequewriting.main;
 
-import chequewriting.utils.Validations;
+import com.chequewriting.utils.Validations;
 import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
